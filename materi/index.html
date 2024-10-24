@@ -1,0 +1,146 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BelajarFisika di SintaksMaster</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="wrapper">
+        <div class="logo">
+          <a href="../index.html">Sintaks<span>Master.</span></a>
+        </div>
+        <div class="home">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sekilas">Sekilas</a></li>
+            <li><a href="#Simulasi">Simulasi</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="wrapper">
+      <!--Home Section-->
+      <section id="home">
+        <div class="home-image">
+          <img
+            src="https://img.freepik.com/premium-vector/atom-open-book-isolated-white-background_906149-88586.jpg?ga=GA1.1.1075902134.1729695390&semt=ais_hybrid"
+            alt="Open Book and Atom"
+          />
+        </div>
+        <div class="kolom">
+          <p class="deskripsi">Hambatan Listrik Hukum Ohm</p>
+          <h2>Resistansi Konduktor</h2>
+          <p>
+            Resistansi adalah kemampuan suatu bahan untuk menghambat laju aliran
+            muatan listrik atau arus listrik.Itulah mengapa, komponen yang
+            memiliki kemampuan semacam ini disebut sebagai resistor atau
+            hambatan listrik. Semakin besar resistansi suatu bahan, semakin
+            kecil arus listrik yang akan mengalir pada bahan tersebut.
+          </p>
+          <p>
+            <a href="#Simulasi" class="tbl-pink"
+              >Lakukan Simulasi</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <!--Sekilas Section-->
+      <section id="sekilas">
+        <div class="kolom">
+          <p class="deskripsi">You Will Need This Informations!</p>
+          <h2>Sekilas Materi</h2>
+          <p>
+            Rumus resistansi menghubungkan besar hambatan listrik (resistansi) dalam suatu rangkaian dengan panjang kawat (L), luas penampang kawat (A), dan jenis materialnya.Semakin panjang kawat dan semakin kecil luas penampangnya, maka semakin besar resistansi. Resistansi juga dipengaruhi oleh jenis material karena setiap bahan memiliki resistivitas yang berbeda, yang menentukan seberapa mudah arus listrik dapat mengalir melalui material tersebut.
+          </p>
+        </div>
+        <div class="sekilas-image">
+          <img
+            src="https://img.freepik.com/premium-photo/illustration-doodle-science-education-school-icon-hand-drawn-sketch-style-doodle-science_667922-10938.jpg?ga=GA1.1.1075902134.1729695390&semt=ais_hybrid"
+            alt=""
+          />
+        </div>
+      </section>
+    </div>
+    <!--Simulasi Section-->
+    <section id="Simulasi">
+      <div id="container">
+        <h2>Faktor-Faktor Pengaruh</h2>
+        <h1>Resistivity Calculator</h1>
+        <!-- Formula Display -->
+        <div id="formula">
+          <span>R =</span>
+          <span class="variable">ρ</span><span class="operation">×</span>
+          <span class="variable">L</span>
+          <span class="operation">/</span>
+          <span class="variable">A</span>
+        </div>
+  
+        <div id="calculator">
+          <div class="slider">
+            <label for="resistivity"
+              >Resistivity (ρ):
+              <span id="resistivity-value">0.48</span> Ω⋅cm</label
+            ><br />
+            <input
+              type="range"
+              id="resistivity"
+              min="0.1"
+              max="2"
+              step="0.01"
+              value="0.48"
+              oninput="updateValues()"
+            />
+          </div>
+          <div class="slider">
+            <label for="length"
+              >Length (L): <span id="length-value">9.27</span> cm</label
+            ><br />
+            <input
+              type="range"
+              id="length"
+              min="1"
+              max="20"
+              step="0.1"
+              value="9.27"
+              oninput="updateValues()"
+            />
+          </div>
+          <div class="slider">
+            <label for="area"
+              >Area (A): <span id="area-value">7.50</span> cm²</label
+            ><br />
+            <input
+              type="range"
+              id="area"
+              min="1"
+              max="10"
+              step="0.1"
+              value="7.50"
+              oninput="updateValues()"
+            />
+          </div>
+        </div>
+  
+        <div id="conductor-container">
+          <div
+            class="conductor"
+            id="conductor"
+            style="width: 200px; height: 50px"
+          ></div>
+        </div>
+  
+        <div class="values">
+          <p class="resistance">
+            Resistance (R) = <span id="resistance-value">0.593</span> Ω
+          </p>
+        </div>
+      </div>  
+    </section>
+  
+    <script src="scripts.js"></script>
+  </div>
+  </body>
+</html>
