@@ -415,7 +415,7 @@ footer .credit a {
 
   .about .row .content {
     padding: 0 2rem;
-    text-align: center; /* Memastikan teks berada di tengah */
+    text-align: center;
   }
   .contact .row {
     flex-wrap: wrap;

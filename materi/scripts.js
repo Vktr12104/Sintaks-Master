@@ -22,9 +22,8 @@ function updateValues() {
 
 function updateDots(resistivity) {
   let conductor = document.getElementById("conductor");
-  conductor.innerHTML = ""; // Clear previous dots
-  let dotCount = Math.floor(resistivity * 100); // More resistivity, more dots
-
+  conductor.innerHTML = "";
+  let dotCount = Math.floor(resistivity * 100);
   for (let i = 0; i < dotCount; i++) {
     let dot = document.createElement("div");
     dot.className = "dot";
@@ -34,5 +33,4 @@ function updateDots(resistivity) {
   }
 }
 
-// Initialize values on load
 window.onload = updateValues;
