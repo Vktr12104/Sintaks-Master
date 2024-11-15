@@ -76,7 +76,7 @@ signinButton.addEventListener("click", (e) => {
           document.body.classList.add("slide-out");
 
           setTimeout(() => {
-            location.href = "http://127.0.0.1:5500/Home/index.html";
+            location.href = "../Home/index.html";
           }, 500);
         })
         .catch((error) => {
