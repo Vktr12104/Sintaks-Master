@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/style.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -22,10 +22,13 @@
         <a href="#about">Tentang Kami</a>
         <a href="#Topik">Topik</a>
         <a href="#contact">Contact</a>
+        <a href="#SignOut" id="logout-button">SignOut</a>
       </div>
       <div class="navbar-extra">
         <a href="#" id="search"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <a href="../profile/index.html" id="user"
+          ><i data-feather="user"></i>Profile</a
+        >
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
     </nav>
@@ -44,7 +47,7 @@
       <h2><span>Tentang</span> Kami</h2>
       <div class="row">
         <div class="about-img">
-          <img src="img/foto.jpg" alt="Tentang Kami" />
+          <img src="../img/foto.jpg" alt="Tentang Kami" />
         </div>
         <div class="content">
           <h3>Kenapa Memilih Sintaks Master</h3>
@@ -71,19 +74,21 @@
       </p>
       <div class="row">
         <div class="topik-0card">
-          <img src="img/fisika.jpg" alt="" class="topik-card-img" />
+          <img src="../img/fisika.jpg" alt="" class="topik-card-img" />
           <p class="topik-card-price">
             Mari Belajar Faktor-faktor yang mempengaruhi besar hambatan.
           </p>
-          <a href="materi/index.html" class="tbl-pink">Resistansi Konduktor</a>
+          <a href="../materi/index.html" class="tbl-pink"
+            >Resistansi Konduktor</a
+          >
         </div>
         <div class="topik-0card">
-          <img src="img/kimia.jpg" alt="" class="topik-card-img" />
+          <img src="../img/kimia.jpg" alt="" class="topik-card-img" />
 
           <p class="topik-card-price">
             Mari Belajar Jenis-Jenis Unsur pada Sistem Periodik Unsur
           </p>
-          <a href="materi/index1.html" class="tbl-pink">Sistem Periodik</a>
+          <a href="../materi/index1.html" class="tbl-pink">Sistem Periodik</a>
         </div>
       </div>
     </section>
@@ -121,6 +126,7 @@
       </div>
     </section>
     <!-- Contact Sections End-->
+
     <!-- Footer Sections Start-->
     <footer>
       <div class="social">
@@ -147,7 +153,7 @@
     <script>
       feather.replace();
     </script>
-    <!--My JavaScripts-->
-    <script src="js/script.js"></script>
+    <script type="module" src="scripts.js"></script>
+    <script type="module" src="../js/script.js"></script>
   </body>
 </html>

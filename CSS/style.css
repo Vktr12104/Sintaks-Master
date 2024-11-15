@@ -79,9 +79,27 @@ html {
 .navbar .navbar-extra a:hover {
   color: var(--primary);
 }
+.navbar-extra {
+  display: flex;
+  align-items: center;
+}
 
 #hamburger-menu {
   display: none;
+}
+#user {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+#user:hover {
+  color: var(--primary); /* Change color on hover */
+}
+#user i {
+  margin-right: 5px;
 }
 /*Hero Section*/
 .hero {

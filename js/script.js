@@ -13,3 +13,6 @@ document.addEventListener("click", function (e) {
     navbarNav.classList.remove("active");
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  document.body.classList.add("fade-in");
+});

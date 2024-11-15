@@ -1,4 +1,3 @@
-//Initial References
 let draggableObjects;
 let dropPoints;
 const startButton = document.getElementById("start");

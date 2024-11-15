@@ -9,7 +9,7 @@
     <nav>
       <div class="wrapper">
         <div class="logo">
-          <a href="../index.html">Sintaks<span>Master.</span></a>
+          <a href="../Home/index.html">Sintaks<span>Master.</span></a>
         </div>
         <div class="home">
           <ul>
@@ -137,10 +137,124 @@
             Resistance (R) = <span id="resistance-value">0.593</span> Ω
           </p>
         </div>
+
+        <button id="saveButton">Save Data</button>
       </div>  
+      
     </section>
-  
+    <div class="app">
+      <h1>Kuis Resistivitas</h1>
+      <div class="quiz">
+        <h2 id="question">Question goes here</h2>
+        <div id="answer-buttons">
+          <button class="btn1">Answer 1</button>
+          <button class="btn1">Answer 2</button>
+          <button class="btn1">Answer 3</button>
+          <button class="btn1">Answer 4</button>
+        </div>
+        <button id="next-btn">Next</button>
+        <button id="saveButtonQuiz">Save</button>
+        <p>Skor Kuis: <span id="score">0</span></p> 
+      </div>
+    </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+      import { getFirestore, collection, getDocs, query, where, doc, setDoc, updateDoc, addDoc } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyCHjA8L-Qc8kNECl5d0_F84Bi5z7jb-j70",
+        authDomain: "sintakmasterauth.firebaseapp.com",
+        databaseURL: "https://sintakmasterauth-default-rtdb.firebaseio.com",
+        projectId: "sintakmasterauth",
+        storageBucket: "sintakmasterauth.firebasestorage.app",
+        messagingSenderId: "834052394660",
+        appId: "1:834052394660:web:615bc25adbc65b21566031",
+      };
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+              async function saveToDatabase() {
+          const userEmail = sessionStorage.getItem("userEmail");
+
+          if (!userEmail) {
+            alert("User not logged in!");
+            return;
+          }
+
+          try {
+            const resistivity = parseFloat(document.getElementById("resistivity").value);
+            const length = parseFloat(document.getElementById("length").value);
+            const area = parseFloat(document.getElementById("area").value);
+            const q = query(collection(db, "Fisika"), where("Email", "==", userEmail));
+            const querySnapshot = await getDocs(q);
+
+            if (!querySnapshot.empty) {
+              querySnapshot.forEach(async (docSnapshot) => {
+                const docRef = doc(db, "Fisika", docSnapshot.id);
+                await updateDoc(docRef, {
+                  Resistivitas: resistivity,
+                  Panjang: length,
+                  Luas: area,
+                  SkorKuis: score, 
+                });
+                alert("Data updated successfully!");
+              });
+            } else {
+              await setDoc(doc(collection(db, "Fisika")), {
+                Email: userEmail,
+                Resistivitas: resistivity,
+                Panjang: length,
+                Luas: area,
+                SkorKuis: score, 
+              });
+              alert("Data saved successfully!");
+            }
+          } catch (error) {
+            console.error("Error saving data:", error);
+            alert("Failed to save data.");
+          }
+        }
+              async function loadData() {
+        const userEmail = sessionStorage.getItem("userEmail");
+
+        if (!userEmail) {
+          alert("User not logged in!");
+          return;
+        }
+        try {
+          const q = query(collection(db, "Fisika"), where("Email", "==", userEmail));
+          const querySnapshot = await getDocs(q);
+          if (!querySnapshot.empty) {
+            querySnapshot.forEach((doc) => {
+              const data = doc.data();
+              const resistivity = data.Resistivitas || 0.48;
+              const length = data.Panjang || 9.27;
+              const area = data.Luas || 7.50;
+              const score = data.SkorKuis || 0;
+              document.getElementById("resistivity").value = resistivity;
+              document.getElementById("length").value = length;
+              document.getElementById("area").value = area;
+              document.getElementById("length-value").textContent = length + " cm";
+              document.getElementById("area-value").textContent = area + " cm²";
+              document.getElementById("score").textContent = score ;
+              updateValues();
+            });
+          } else {
+            alert("No data found for this user.");
+          }
+        } catch (error) {
+          console.error("Error loading data:", error);
+          alert("Failed to load data.");
+        }
+      }
+
+      window.onload = loadData;
+      document.getElementById("saveButton").addEventListener("click", saveToDatabase);
+      document.getElementById("saveButtonQuiz").addEventListener("click", () => {
+        const score = parseInt(document.getElementById("score").innerText); 
+        saveToDatabase(score); 
+      });
+    </script>
     <script src="scripts.js"></script>
+    <script src="kuis.js"></script>
   </div>
   </body>
 </html>
