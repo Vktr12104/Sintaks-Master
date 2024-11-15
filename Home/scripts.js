@@ -25,7 +25,7 @@ logoutButton.addEventListener("click", (e) => {
   signOut(auth)
     .then(() => {
       alert("Sukses logout");
-      location.href = "http://127.0.0.1:5500/index2.html";
+      location.href = "../index.html";
     })
     .catch((error) => {
       console.error("Logout gagal:", error);
